@@ -48,7 +48,7 @@
         {{ with .Description }}
           {{ . | markdownify }}
         {{ else }}
-          {{ if .Truncated }}
+          {{ if or .Truncated .Params.summary }}
             {{ .Summary | markdownify }}
           {{ end }}
         {{ end }}
